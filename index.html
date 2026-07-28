@@ -305,7 +305,11 @@
         </div>
       </div>
       <div class="split-right reveal">
-        <form id="quoteForm" class="quote-form">
+        <form id="quoteForm" class="quote-form" action="https://formsubmit.co/ajax/Ishkirat16@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="New PROMAX Quote Request" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="text" name="_honey" style="display:none" />
+          <input type="hidden" name="_captcha" value="false" />
           <div id="formSuccess" class="form-success" style="display:none">
             <div class="success-icon">✓</div>
             <h3>Quote Request Sent!</h3>
@@ -314,15 +318,15 @@
           </div>
           <div id="formFields">
             <div class="form-row">
-              <input type="text" name="first_name" placeholder="First Name *" required />
-              <input type="text" name="last_name" placeholder="Last Name *" required />
+              <input type="text" name="First Name" placeholder="First Name *" required />
+              <input type="text" name="Last Name" placeholder="Last Name *" required />
             </div>
             <div class="form-row">
-              <input type="email" name="email" placeholder="Email Address *" required />
-              <input type="tel" name="phone" placeholder="Phone Number *" required />
+              <input type="email" name="Email" placeholder="Email Address *" required />
+              <input type="tel" name="Phone" placeholder="Phone Number *" required />
             </div>
             <div class="form-row">
-              <select name="service_type" required>
+              <select name="Service Type" required>
                 <option value="">Service Type *</option>
                 <option>Residential Cleaning</option>
                 <option>Commercial Cleaning</option>
@@ -330,7 +334,7 @@
                 <option>Deep Cleaning</option>
                 <option>Regular Maintenance</option>
               </select>
-              <select name="property_size" required>
+              <select name="Property Size" required>
                 <option value="">Property Size *</option>
                 <option>Studio / 1 Bedroom</option>
                 <option>2-3 Bedrooms</option>
@@ -339,7 +343,7 @@
                 <option>Commercial Space</option>
               </select>
             </div>
-            <textarea name="details" placeholder="Additional details (optional)" rows="4"></textarea>
+            <textarea name="Details" placeholder="Additional details (optional)" rows="4"></textarea>
             <div id="formError" class="form-error" style="display:none"></div>
             <button type="submit" class="btn btn-gold full" id="submitBtn">✉ Request Free Quote</button>
           </div>

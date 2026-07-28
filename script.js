@@ -30,27 +30,29 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.15 });
 reveals.forEach(el => observer.observe(el));
 
-// Contact form
+// Contact form (Formsubmit.co)
 document.getElementById('quoteForm').addEventListener('submit', async (e) => {
   e.preventDefault();
+  const form = e.target;
   const btn = document.getElementById('submitBtn');
   const errorEl = document.getElementById('formError');
   btn.textContent = 'Sending...';
   btn.disabled = true;
   errorEl.style.display = 'none';
 
-  const data = new FormData(e.target);
-  data.append('access_key', 'YOUR_WEB3FORMS_KEY');
-
   try {
-    const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
-    const json = await res.json();
-    if (json.success) {
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' },
+    });
+    const data = await res.json();
+    if (data.success) {
       document.getElementById('formFields').style.display = 'none';
       document.getElementById('formSuccess').style.display = 'block';
-      e.target.reset();
+      form.reset();
     } else {
-      throw new Error(json.message || 'Failed to send');
+      throw new Error(data.message || 'Failed to send');
     }
   } catch (err) {
     errorEl.textContent = err.message || 'Something went wrong. Please try again.';
