@@ -30,30 +30,33 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.15 });
 reveals.forEach(el => observer.observe(el));
 
-// Auto-slide testimonials on mobile
+// Auto-slide testimonials on mobile — show only one at a time
 (function () {
   const grid = document.querySelector('.reviews-grid');
   if (!grid) return;
+  const cards = grid.querySelectorAll('.review-card');
   let idx = 0;
   let interval;
 
+  function slide() {
+    cards.forEach(c => c.style.transform = `translateX(-${idx * 100}%)`);
+  }
+
   function startSlide() {
-    if (window.innerWidth > 700) return;
-    const cards = grid.querySelectorAll('.review-card');
+    if (window.innerWidth > 700) {
+      cards.forEach(c => c.style.transform = '');
+      return;
+    }
+    slide();
     interval = setInterval(() => {
       idx = (idx + 1) % cards.length;
-      cards[idx].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      slide();
     }, 3500);
   }
 
   function stopSlide() { clearInterval(interval); }
 
-  // Pause on touch so user can swipe freely
-  grid.addEventListener('touchstart', stopSlide);
-  grid.addEventListener('touchend', () => { stopSlide(); startSlide(); });
-
-  // Restart on resize
-  window.addEventListener('resize', () => { stopSlide(); startSlide(); });
+  window.addEventListener('resize', () => { stopSlide(); idx = 0; startSlide(); });
   startSlide();
 })();
 
