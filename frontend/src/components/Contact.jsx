@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Mail, Phone, MapPin, Clock, Send, CheckCircle, AlertCircle, Loader2 } from 'lucide-react'
-import axios from 'axios'
 
 const SERVICE_TYPES = [
   'Residential Cleaning',
@@ -20,33 +19,32 @@ const PROPERTY_SIZES = [
 ]
 
 export default function Contact() {
-  const [form, setForm] = useState({
-    first_name: '',
-    last_name: '',
-    email: '',
-    phone: '',
-    service_type: '',
-    property_size: '',
-    details: '',
-  })
-  const [status, setStatus] = useState('idle') // idle | loading | success | error
+  const [status, setStatus] = useState('idle')
   const [errorMsg, setErrorMsg] = useState('')
-
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value })
-  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     setStatus('loading')
     setErrorMsg('')
+
+    const formData = new FormData(e.target)
+    formData.append('access_key', 'YOUR_WEB3FORMS_KEY')
+
     try {
-      await axios.post('http://localhost:8000/api/quote', form)
-      setStatus('success')
-      setForm({ first_name: '', last_name: '', email: '', phone: '', service_type: '', property_size: '', details: '' })
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData,
+      })
+      const data = await res.json()
+      if (data.success) {
+        setStatus('success')
+        e.target.reset()
+      } else {
+        throw new Error(data.message || 'Submission failed')
+      }
     } catch (err) {
       setStatus('error')
-      setErrorMsg(err.response?.data?.detail?.[0]?.msg || err.response?.data?.detail || 'Something went wrong. Please try again.')
+      setErrorMsg(err.message || 'Something went wrong. Please try again.')
     }
   }
 
@@ -57,7 +55,6 @@ export default function Contact() {
     <section id="contact" className="py-24 bg-neutral-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16">
-          {/* Left info */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -79,7 +76,7 @@ export default function Contact() {
                 { icon: Clock, label: 'Mon-Sat: 7AM - 8PM' },
               ].map((item) => (
                 <div key={item.label} className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-yellow-500/10 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-lg bg-yellow-500/10 flex items-center justify-center shrink-0">
                     <item.icon size={18} className="text-yellow-500" />
                   </div>
                   <span className="text-neutral-300 text-sm">{item.label}</span>
@@ -88,7 +85,6 @@ export default function Contact() {
             </div>
           </motion.div>
 
-          {/* Right form */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -112,21 +108,21 @@ export default function Contact() {
             ) : (
               <form onSubmit={handleSubmit} className="bg-neutral-800/50 border border-neutral-700 rounded-xl p-8 space-y-5">
                 <div className="grid sm:grid-cols-2 gap-4">
-                  <input name="first_name" value={form.first_name} onChange={handleChange} placeholder="First Name *" required className={inputClass} />
-                  <input name="last_name" value={form.last_name} onChange={handleChange} placeholder="Last Name *" required className={inputClass} />
+                  <input name="first_name" placeholder="First Name *" required className={inputClass} />
+                  <input name="last_name" placeholder="Last Name *" required className={inputClass} />
                 </div>
                 <div className="grid sm:grid-cols-2 gap-4">
-                  <input name="email" type="email" value={form.email} onChange={handleChange} placeholder="Email Address *" required className={inputClass} />
-                  <input name="phone" value={form.phone} onChange={handleChange} placeholder="Phone Number *" required className={inputClass} />
+                  <input name="email" type="email" placeholder="Email Address *" required className={inputClass} />
+                  <input name="phone" placeholder="Phone Number *" required className={inputClass} />
                 </div>
                 <div className="grid sm:grid-cols-2 gap-4">
-                  <select name="service_type" value={form.service_type} onChange={handleChange} required className={inputClass}>
+                  <select name="service_type" required className={inputClass}>
                     <option value="">Service Type *</option>
                     {SERVICE_TYPES.map((s) => (
                       <option key={s} value={s}>{s}</option>
                     ))}
                   </select>
-                  <select name="property_size" value={form.property_size} onChange={handleChange} required className={inputClass}>
+                  <select name="property_size" required className={inputClass}>
                     <option value="">Property Size *</option>
                     {PROPERTY_SIZES.map((p) => (
                       <option key={p} value={p}>{p}</option>
@@ -135,8 +131,6 @@ export default function Contact() {
                 </div>
                 <textarea
                   name="details"
-                  value={form.details}
-                  onChange={handleChange}
                   placeholder="Additional details (optional)"
                   rows={4}
                   className={inputClass}
