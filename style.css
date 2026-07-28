@@ -239,7 +239,23 @@ ul { list-style: none; }
 .review-card p { font-size: .9rem; color: var(--light); line-height: 1.7; margin-bottom: 1.5rem; }
 .reviewer strong { display: block; font-size: .9rem; }
 .reviewer span { font-size: .75rem; color: #737373; }
-@media (max-width: 700px) { .reviews-grid { grid-template-columns: 1fr; } }
+@media (max-width: 700px) {
+  .reviews-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 1rem;
+    padding-bottom: 1rem;
+  }
+  .reviews-grid::-webkit-scrollbar { display: none; }
+  .review-card {
+    min-width: 85vw;
+    scroll-snap-align: center;
+    flex-shrink: 0;
+  }
+}
 
 /* ─── PRICING ─── */
 .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; align-items: start; }

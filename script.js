@@ -30,6 +30,33 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.15 });
 reveals.forEach(el => observer.observe(el));
 
+// Auto-slide testimonials on mobile
+(function () {
+  const grid = document.querySelector('.reviews-grid');
+  if (!grid) return;
+  let idx = 0;
+  let interval;
+
+  function startSlide() {
+    if (window.innerWidth > 700) return;
+    const cards = grid.querySelectorAll('.review-card');
+    interval = setInterval(() => {
+      idx = (idx + 1) % cards.length;
+      cards[idx].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    }, 3500);
+  }
+
+  function stopSlide() { clearInterval(interval); }
+
+  // Pause on touch so user can swipe freely
+  grid.addEventListener('touchstart', stopSlide);
+  grid.addEventListener('touchend', () => { stopSlide(); startSlide(); });
+
+  // Restart on resize
+  window.addEventListener('resize', () => { stopSlide(); startSlide(); });
+  startSlide();
+})();
+
 // Contact form (Formsubmit.co)
 document.getElementById('quoteForm').addEventListener('submit', async (e) => {
   e.preventDefault();
