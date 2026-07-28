@@ -30,7 +30,7 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.15 });
 reveals.forEach(el => observer.observe(el));
 
-// Auto-slide testimonials on mobile — show only one at a time
+// Auto-slide testimonials on mobile — one card at a time
 (function () {
   const grid = document.querySelector('.reviews-grid');
   if (!grid) return;
@@ -38,25 +38,27 @@ reveals.forEach(el => observer.observe(el));
   let idx = 0;
   let interval;
 
-  function slide() {
-    cards.forEach(c => c.style.transform = `translateX(-${idx * 100}%)`);
+  function showCard() {
+    cards.forEach(c => c.classList.remove('active-slide'));
+    cards[idx].classList.add('active-slide');
   }
 
   function startSlide() {
+    stopSlide();
     if (window.innerWidth > 700) {
-      cards.forEach(c => c.style.transform = '');
+      cards.forEach(c => c.classList.remove('active-slide'));
       return;
     }
-    slide();
+    showCard();
     interval = setInterval(() => {
       idx = (idx + 1) % cards.length;
-      slide();
+      showCard();
     }, 3500);
   }
 
   function stopSlide() { clearInterval(interval); }
 
-  window.addEventListener('resize', () => { stopSlide(); idx = 0; startSlide(); });
+  window.addEventListener('resize', () => { idx = 0; startSlide(); });
   startSlide();
 })();
 
