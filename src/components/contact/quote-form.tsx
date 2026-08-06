@@ -69,8 +69,7 @@ export function QuoteForm() {
       !form.lastName ||
       !form.email ||
       !form.phone ||
-      !form.serviceType ||
-      !form.propertySize
+      !form.serviceType
     ) {
       return;
     }
@@ -224,9 +223,7 @@ export function QuoteForm() {
           </Select>
         </div>
         <div className="flex flex-col gap-2">
-          <Label htmlFor="propertySize">
-            Property size <span className="text-gold">*</span>
-          </Label>
+          <Label htmlFor="propertySize">Property size (optional)</Label>
           <Select
             value={form.propertySize}
             onValueChange={(v) => update("propertySize", v)}
