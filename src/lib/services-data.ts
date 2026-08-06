@@ -125,4 +125,26 @@ export const services: ServiceCategory[] = [
       },
     ],
   },
+  {
+    id: "exterior",
+    title: "Exterior Services",
+    subtitle: "Outdoor upkeep for decks, driveways and building exteriors",
+    items: [
+      {
+        name: "Deck Staining",
+        description:
+          "Pressure washing and prepping, followed by a fresh coat of stain to protect and refresh your deck.",
+      },
+      {
+        name: "Driveway Sealing",
+        description:
+          "Professional sealcoating that protects your driveway from cracks, stains and weather damage.",
+      },
+      {
+        name: "Exterior Pressure Washing",
+        description:
+          "High-pressure cleaning for siding, walkways and other exterior surfaces.",
+      },
+    ],
+  },
 ];

@@ -26,7 +26,7 @@ export function QuoteCta() {
         </Reveal>
         <Reveal y={26} delay={0.06}>
           <h2 className="mt-4 font-display font-medium text-5xl sm:text-6xl md:text-7xl leading-[1.02] text-balance">
-            Ready for a spotless space?
+            Ready to elevate your home?
           </h2>
         </Reveal>
         <Reveal y={18} delay={0.12}>

@@ -61,7 +61,7 @@ export function Hero() {
           transition={{ duration: 0.8, ease: easeCinematic, delay: 0.2 }}
           className="eyebrow"
         >
-          Halifax, Nova Scotia
+          Nova Scotia
         </motion.span>
 
         <motion.h1

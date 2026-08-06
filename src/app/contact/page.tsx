@@ -15,7 +15,7 @@ export default function ContactPage() {
     <>
       <PageHero
         eyebrow="Get a Free Quote"
-        title="Ready for a spotless space?"
+        title="Ready to elevate your home?"
         subtitle="Fill out the form and our team will get back to you within 24 hours with a personalized quote."
         image="windowCleaning"
       />
