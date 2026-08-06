@@ -141,7 +141,9 @@ export function QuoteForm() {
     <form onSubmit={handleSubmit} className="flex flex-col gap-6">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div className="flex flex-col gap-2">
-          <Label htmlFor="firstName">First name</Label>
+          <Label htmlFor="firstName">
+            First name <span className="text-gold">*</span>
+          </Label>
           <Input
             id="firstName"
             required
@@ -152,7 +154,9 @@ export function QuoteForm() {
           />
         </div>
         <div className="flex flex-col gap-2">
-          <Label htmlFor="lastName">Last name</Label>
+          <Label htmlFor="lastName">
+            Last name <span className="text-gold">*</span>
+          </Label>
           <Input
             id="lastName"
             required
@@ -166,7 +170,9 @@ export function QuoteForm() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div className="flex flex-col gap-2">
-          <Label htmlFor="email">Email address</Label>
+          <Label htmlFor="email">
+            Email address <span className="text-gold">*</span>
+          </Label>
           <Input
             id="email"
             type="email"
@@ -178,7 +184,9 @@ export function QuoteForm() {
           />
         </div>
         <div className="flex flex-col gap-2">
-          <Label htmlFor="phone">Phone number</Label>
+          <Label htmlFor="phone">
+            Phone number <span className="text-gold">*</span>
+          </Label>
           <Input
             id="phone"
             type="tel"
@@ -193,7 +201,9 @@ export function QuoteForm() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div className="flex flex-col gap-2">
-          <Label htmlFor="serviceType">Service type</Label>
+          <Label htmlFor="serviceType">
+            Service type <span className="text-gold">*</span>
+          </Label>
           <Select
             value={form.serviceType}
             onValueChange={(v) => update("serviceType", v)}
@@ -214,7 +224,9 @@ export function QuoteForm() {
           </Select>
         </div>
         <div className="flex flex-col gap-2">
-          <Label htmlFor="propertySize">Property size</Label>
+          <Label htmlFor="propertySize">
+            Property size <span className="text-gold">*</span>
+          </Label>
           <Select
             value={form.propertySize}
             onValueChange={(v) => update("propertySize", v)}
@@ -246,6 +258,10 @@ export function QuoteForm() {
           className="rounded-lg min-h-32 bg-transparent border-white/20"
         />
       </div>
+
+      <p className="text-xs text-muted-foreground">
+        <span className="text-gold">*</span> Required fields
+      </p>
 
       {error && <p className="text-sm text-destructive">{error}</p>}
 
