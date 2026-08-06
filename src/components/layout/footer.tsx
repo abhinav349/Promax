@@ -103,7 +103,7 @@ export function Footer() {
             key={i}
             className="font-display text-2xl sm:text-3xl italic text-foreground/15 px-8 whitespace-nowrap"
           >
-            Premium Property Care &mdash; Halifax
+            Premium Property Care &mdash; Nova Scotia
           </span>
         ))}
       </Marquee>

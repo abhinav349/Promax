@@ -24,16 +24,16 @@ const fraunces = Fraunces({
 
 export const metadata: Metadata = {
   title: {
-    default: `${siteConfig.fullName} | ${siteConfig.locality}, ${siteConfig.region}`,
+    default: `${siteConfig.fullName} | ${siteConfig.region}`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
   keywords: [
-    "ProMax Halifax",
-    "property management Halifax",
-    "house cleaning Halifax NS",
-    "Airbnb turnover cleaning Halifax",
-    "commercial cleaning Halifax",
+    "ProMax Nova Scotia",
+    "property management Nova Scotia",
+    "house cleaning Nova Scotia",
+    "Airbnb turnover cleaning Nova Scotia",
+    "commercial cleaning Nova Scotia",
     "residential cleaning Nova Scotia",
   ],
   openGraph: {

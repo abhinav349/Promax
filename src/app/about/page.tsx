@@ -9,7 +9,7 @@ import { QuoteCta } from "@/components/home/quote-cta";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "The story behind ProMax Property Management in Halifax, Nova Scotia — trusted, trained, and insured property care.",
+    "The story behind ProMax Property Management in Nova Scotia — trusted, trained, and insured property care.",
 };
 
 export default function AboutPage() {
@@ -18,7 +18,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="Our Story"
         title="We don't just clean, we care"
-        subtitle="ProMax brings trained, background-checked crews and a consistent standard to homes, rentals, and businesses across Halifax."
+        subtitle="ProMax brings trained, background-checked crews and a consistent standard to homes, rentals, and businesses across Nova Scotia."
         image="livingRoomFireplace"
       />
       <Story />

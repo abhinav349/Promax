@@ -6,7 +6,7 @@ import { QuoteCta } from "@/components/home/quote-cta";
 export const metadata: Metadata = {
   title: "Gallery",
   description:
-    "A look at ProMax's work across Halifax — residential, commercial, Airbnb turnovers, and the details in between.",
+    "A look at ProMax's work across Nova Scotia — residential, commercial, Airbnb turnovers, and the details in between.",
 };
 
 export default function GalleryPage() {
@@ -15,7 +15,7 @@ export default function GalleryPage() {
       <PageHero
         eyebrow="Gallery"
         title="Our work speaks for itself"
-        subtitle="A closer look at the homes, offices, and rentals we care for across Halifax."
+        subtitle="A closer look at the homes, offices, and rentals we care for across Nova Scotia."
         image="differenceExterior"
       />
       <GalleryGrid />

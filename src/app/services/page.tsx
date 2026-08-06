@@ -8,7 +8,7 @@ import { services } from "@/lib/services-data";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Residential, commercial, Airbnb turnover, deep cleaning and maintenance plans from ProMax Property Management in Halifax.",
+    "Residential, commercial, Airbnb turnover, deep cleaning and maintenance plans from ProMax Property Management in Nova Scotia.",
 };
 
 export default function ServicesPage() {

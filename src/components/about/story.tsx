@@ -14,26 +14,27 @@ export function Story() {
           </Reveal>
           <Reveal y={26} delay={0.05}>
             <h2 className="mt-4 font-display font-medium text-4xl sm:text-5xl leading-[1.08] text-balance">
-              Property care, built for Halifax
+              Property care, built for Nova Scotia
             </h2>
           </Reveal>
           <Reveal y={18} delay={0.12}>
             <div className="mt-6 flex flex-col gap-5 text-muted-foreground leading-relaxed text-base sm:text-lg">
               <p>
-                ProMax started with a simple idea: property care in Halifax
-                deserved better than a rotating cast of one-off cleaners.
-                Homeowners, hosts, and property managers needed a team they
-                could actually rely on — the same standard, every visit.
+                ProMax started with a simple idea: property care in Nova
+                Scotia deserved better than a rotating cast of one-off
+                cleaners. Homeowners, hosts, and property managers needed a
+                team they could actually rely on — the same standard, every
+                visit.
               </p>
               <p>
                 Today we look after residential homes, commercial spaces, and
-                short-term rentals across the city — background-checked
+                short-term rentals across the province — background-checked
                 staff, eco-friendly products, and a checklist that doesn&apos;t
                 change depending on who&apos;s on shift.
               </p>
               <p>
-                We&apos;re not the biggest cleaning company in Halifax. We&apos;d
-                rather be the one you trust with a key.
+                We&apos;re not the biggest cleaning company in Nova Scotia.
+                We&apos;d rather be the one you trust with a key.
               </p>
             </div>
           </Reveal>

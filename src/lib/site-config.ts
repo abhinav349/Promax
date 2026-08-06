@@ -2,10 +2,10 @@ export const siteConfig = {
   name: "ProMax",
   fullName: "ProMax Property Management",
   tagline: "Premium Property Care",
-  locality: "Halifax",
+  locality: "Nova Scotia",
   region: "Nova Scotia",
   description:
-    "Premium property management and cleaning — residential, commercial, and Airbnb turnovers in Halifax, Nova Scotia. Trusted, trained, insured.",
+    "Premium property management and cleaning — residential, commercial, and Airbnb turnovers across Nova Scotia. Trusted, trained, insured.",
   url: "https://promaxclean.com",
 
   address: {

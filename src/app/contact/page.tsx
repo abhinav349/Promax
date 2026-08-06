@@ -7,7 +7,7 @@ import { Faq } from "@/components/contact/faq";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get a free quote from ProMax Property Management — residential, commercial, and Airbnb cleaning across Halifax, NS.",
+    "Get a free quote from ProMax Property Management — residential, commercial, and Airbnb cleaning across Nova Scotia.",
 };
 
 export default function ContactPage() {

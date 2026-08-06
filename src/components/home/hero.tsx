@@ -82,7 +82,7 @@ export function Hero() {
           className="mt-7 max-w-md text-base sm:text-lg text-foreground/75 leading-relaxed text-balance"
         >
           Premium property management and cleaning for homes, rentals, and
-          businesses across Halifax — trusted, trained, and insured.
+          businesses across Nova Scotia — trusted, trained, and insured.
         </motion.p>
 
         <motion.div
