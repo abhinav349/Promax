@@ -22,6 +22,7 @@ const SERVICE_TYPES = [
   "Airbnb & Short-Term",
   "Deep Cleaning",
   "Regular Maintenance",
+  "Property Management",
 ];
 
 const PROPERTY_SIZES = [

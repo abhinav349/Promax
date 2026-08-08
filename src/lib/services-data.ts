@@ -126,10 +126,28 @@ export const services: ServiceCategory[] = [
     ],
   },
   {
-    id: "exterior",
-    title: "Exterior Services",
-    subtitle: "Outdoor upkeep for decks, driveways and building exteriors",
+    id: "property-management",
+    title: "Property Management Services",
+    subtitle:
+      "Lawn care, snow removal and exterior upkeep — bundled into packages built around your property",
     items: [
+      {
+        name: "Lawn Mowing",
+        description:
+          "Scheduled mowing, trimming and edging that keeps grounds tidy all season long.",
+        tag: "most requested",
+      },
+      {
+        name: "Snow Plowing",
+        description:
+          "Reliable driveway, lot and walkway clearing before Nova Scotia's first flakes settle.",
+        tag: "seasonal",
+      },
+      {
+        name: "Pressure Washing",
+        description:
+          "High-pressure cleaning for siding, walkways and other exterior surfaces.",
+      },
       {
         name: "Deck Staining",
         description:
@@ -141,9 +159,10 @@ export const services: ServiceCategory[] = [
           "Professional sealcoating that protects your driveway from cracks, stains and weather damage.",
       },
       {
-        name: "Exterior Pressure Washing",
+        name: "Property Cleaning",
         description:
-          "High-pressure cleaning for siding, walkways and other exterior surfaces.",
+          "Pair any exterior plan with interior or common-area cleaning for full-property coverage.",
+        tag: "add-on",
       },
     ],
   },
